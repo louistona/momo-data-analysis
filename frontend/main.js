@@ -1,8 +1,8 @@
-function filterAndRender() {
+function filterAndDisplay() {
     let filtered = window.transactions || [];
-    const type = document.getElementById('typeFilter').value;
-    const date = document.getElementById('dateFilter').value;
-    const amount = parseInt(document.getElementById('amountFilter').value);
+    const type = document.getElementById('filter').value;
+    const date = document.getElementById('filterDate').value;
+    const amount = parseInt(document.getElementById('filterAmount').value);
     if (type) filtered = filtered.filter(t => t.category === type);
     if (date) filtered = filtered.filter(t => t.date && t.date.slice(0, 10) === date);
     if (!isNaN(amount)) filtered = filtered.filter(t => t.amount >= amount);
@@ -14,7 +14,7 @@ function filterAndRender() {
 
 function populateFilters(data) {
     const types = [...new Set(data.map(t => t.category))];
-    const typeSelect = document.getElementById('typeFilter');
+    const typeSelect = document.getElementById('filter');
     typeSelect.innerHTML = '<option value="">All</option>';
     types.forEach(type => {
         const opt = document.createElement('option');
@@ -32,8 +32,8 @@ function renderTable(data, page = 1, perPage = null) {
     const end = start + perPage;
     const paginated = data.slice(start, end);
     paginated.forEach(tr => {
-        const sender = tr.sender && tr.sender.trim() ? tr.sender : '<span class="missing-info" title="Not provided for this type">&mdash;</span>';
-        const receiver = tr.receiver && tr.receiver.trim() ? tr.receiver : '<span class="missing-info" title="Not provided for this type">&mdash;</span>';
+        const sender = tr.sender && tr.sender.trim() ? tr.sender : '<span class="missing" title="Not provided for this type">&mdash;</span>';
+        const receiver = tr.receiver && tr.receiver.trim() ? tr.receiver : '<span class="missing" title="Not provided for this type">&mdash;</span>';
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${tr.id}</td>
@@ -47,11 +47,11 @@ function renderTable(data, page = 1, perPage = null) {
         row.addEventListener('click', () => showDetails(tr));
         tbody.appendChild(row);
     });
-    // Pagination controls
-    const pagination = document.getElementById('pagination');
-    if (pagination) {
+
+    const pages = document.getElementById('pages');
+    if (pages) {
         const totalPages = Math.ceil(data.length / perPage) || 1;
-        pagination.innerHTML = `
+        page.innerHTML = `
             <button id="prevPage" ${page === 1 ? 'disabled' : ''}>Previous</button>
             <span>Page ${page} of ${totalPages}</span>
             <label>Items per page: <select id="itemsPerPage">
@@ -76,7 +76,7 @@ function renderTable(data, page = 1, perPage = null) {
     }
 }
 
-const modal = document.getElementById('detailsModal');
+const information = document.getElementById('details');
 function showDetails(tr) {
     const content = `
         <div class="transaction-card">
@@ -93,7 +93,7 @@ function showDetails(tr) {
         </div>
     `;
     document.getElementById('detailsContent').innerHTML = content;
-    modal.style.display = 'block';
+    information.style.display = 'block';
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -110,17 +110,17 @@ document.addEventListener('DOMContentLoaded', function() {
             renderMonthlyChart(data);
         });
 
-    document.getElementById('typeFilter').addEventListener('change', filterAndRender);
-    document.getElementById('dateFilter').addEventListener('change', filterAndRender);
-    document.getElementById('amountFilter').addEventListener('input', filterAndRender);
-    document.getElementById('resetFilters').addEventListener('click', function() {
-        document.getElementById('typeFilter').value = '';
-        document.getElementById('dateFilter').value = '';
-        document.getElementById('amountFilter').value = '';
-        filterAndRender();
+    document.getElementById('filter').addEventListener('change', filterAndDisplay);
+    document.getElementById('filterDate').addEventListener('change', filterAndDisplay);
+    document.getElementById('filterAmount').addEventListener('input', filterAndDisplay);
+    document.getElementById('filtersReset').addEventListener('click', function() {
+        document.getElementById('filter').value = '';
+        document.getElementById('filterDate').value = '';
+        document.getElementById('filterAmount').value = '';
+        filterAndDisplay();
     });
     setupTabs();
     const close = document.querySelector('.close');
-    close.onclick = () => modal.style.display = 'none';
-    window.onclick = function(event) { if (event.target == modal) modal.style.display = 'none'; };
+    close.onclick = () => information.style.display = 'none';
+    window.onclick = function(event) { if (event.target == information) information.style.display = 'none'; };
 });

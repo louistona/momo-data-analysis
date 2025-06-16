@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 30px;
-    background: #f9f9f9;
+    background-color: #f5bb00;
 }
 
 h1 {
@@ -42,7 +42,7 @@ tr:hover {
     background: #f5f5f5;
 }
 
-.modal {
+.model {
     display: none;
     position: fixed;
     z-index: 1;
@@ -54,7 +54,7 @@ tr:hover {
     background: rgba(0,0,0,0.4);
 }
 
-.modal-content {
+.models {
     background: #fff;
     margin: 10% auto;
     padding: 20px;
@@ -70,7 +70,7 @@ tr:hover {
     cursor: pointer;
 }
 
-.modal-content .transaction-card {
+.models .transaction-card {
     background: #fff;
     border-radius: 10px;
     padding: 24px 32px;
@@ -78,27 +78,31 @@ tr:hover {
     max-width: 400px;
     margin: 0 auto;
     font-family: inherit;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 
-.modal-content .transaction-card h3 {
+.models .transaction-card h3 {
     margin-top: 0;
-    color: #4e79a7;
+    color: #3d5467;
     text-align: center;
 }
 
-.modal-content .transaction-card dl {
+.models .transaction-card dl {
     display: grid;
     grid-template-columns: max-content 1fr;
     gap: 8px 16px;
     margin: 0;
 }
 
-.modal-content .transaction-card dt {
+.models .transaction-card dt {
     font-weight: bold;
     color: #555;
 }
 
-.modal-content .transaction-card dd {
+.models .transaction-card dd {
     margin: 0 0 8px 0;
     color: #222;
     word-break: break-word;
@@ -106,13 +110,13 @@ tr:hover {
     max-width: 320px;
 }
 
-.modal-content .transaction-card .missing-info {
+.models .transaction-card .missing-info {
     color: #a94442;
     font-weight: bold;
     display: inline-block;
 }
 
-.modal-content .transaction-card .badge {
+.models .transaction-card .badge {
     background: #ffe0e0;
     color: #a94442;
     border-radius: 8px;
@@ -129,7 +133,7 @@ tr:hover {
     margin-bottom: 18px;
 }
 
-.tab {
+.button {
     background: #f1f1f1;
     border: none;
     padding: 10px 28px;
@@ -138,11 +142,15 @@ tr:hover {
     cursor: pointer;
     color: #444;
     transition: background 0.2s, color 0.2s;
+    -webkit-transition: background 0.2s, color 0.2s;
+    -moz-transition: background 0.2s, color 0.2s;
+    -ms-transition: background 0.2s, color 0.2s;
+    -o-transition: background 0.2s, color 0.2s;
 }
 
-.tab.active {
-    background: #4e79a7;
-    color: #fff;
+.button {
+    background: #3d5467;
+    color: #f5bb00;
     font-weight: bold;
 }
 
@@ -150,15 +158,15 @@ tr:hover {
     display: none;
 }
 
-.missing-info {
-    color: #a94442;
+.missing {
+    color: #800e13;
     font-weight: bold;
     display: inline-block;
 }
 
 .badge {
     background: #ffe0e0;
-    color: #a94442;
+    color: #800e13;
     border-radius: 8px;
     padding: 2px 8px;
     font-size: 0.85em;
@@ -166,7 +174,7 @@ tr:hover {
     vertical-align: middle;
 }
 
-.pagination-controls {
+.pages-controls {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -174,23 +182,23 @@ tr:hover {
     margin: 18px 0 0 0;
 }
 
-.pagination-controls button {
+.pages-controls, button {
     padding: 5px 14px;
     border: none;
-    background: #4e79a7;
-    color: #fff;
+    background: #3d5467;
+    color: #f5bb00;
     border-radius: 6px;
     font-size: 1em;
     cursor: pointer;
     transition: background 0.2s;
-}
+    }
 
-.pagination-controls button:disabled {
+.pages-controls, button:disabled {
     background: #ccc;
     cursor: not-allowed;
 }
 
-.charts canvas {
+.charts, canvas {
     width: 400px !important;
     height: 300px !important;
     max-width: 100%;
@@ -199,4 +207,11 @@ tr:hover {
     margin: 0 20px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.03);
     display: inline-block;
+}
+
+.logo-img {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
 }

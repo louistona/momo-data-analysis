@@ -11,11 +11,11 @@ def load_transactions(xml_file):
         level=logging.INFO,
         format='%(asctime)s %(levelname)s: %(message)s'
     )
-    
+
     engine = create_engine(Config.SQLALCHEMY_DATABASE_URI)
     Session = sessionmaker(bind=engine)
     session = Session()
-    
+
     transactions = parse_sms_xml(xml_file)
     try:
         for t in transactions:

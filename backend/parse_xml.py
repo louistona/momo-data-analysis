@@ -8,15 +8,15 @@ def parse_sms_xml(xml_file):
     if not os.path.exists(xml_file):
         print(f"Error: XML file {xml_file} does not exist")
         return transactions
-    
+
     try:
         tree = ET.parse(xml_file)
         root = tree.getroot()
-        
+
         print(f"Found root element: {root.tag}")  # Debug print
         sms_elements = root.findall('sms')
         print(f"Found {len(sms_elements)} <sms> elements")  # Debug print
-        
+
         for sms in sms_elements:
             try:
                 # Extract data from attributes
@@ -47,7 +47,7 @@ def parse_sms_xml(xml_file):
                         date_str = date.strftime('%Y-%m-%d %H:%M:%S')
                     except ValueError:
                         pass
-                
+
                 transaction = {
                     'message': message,
                     'sender': sender,
@@ -65,7 +65,7 @@ def parse_sms_xml(xml_file):
                 continue
     except Exception as e:
         print(f"Error parsing XML file: {str(e)}")
-    
+
     print(f"Parsed {len(transactions)} transactions")  # Debug print
     return transactions
 

@@ -2,31 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoMo Data Dashboard</title>
+    <title>MTN MoMo Data Dashboard</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+    <img src="https://momo.mtn.com/wp-content/uploads/sites/15/2022/07/Group-360.png?fit=360%2C360" alt="MTN MOMO Logo" class="logo-img" />
     <h1>MoMo SMS Data Dashboard</h1>
     <div class="tabs">
-        <button id="tabTable" class="tab active">Table</button>
+        <button id="click" class="button">Table</button>
     </div>
     <div class="filters">
         <label>Type:
-            <select id="typeFilter">
+            <select id="filter">
                 <option value="">All</option>
             </select>
         </label>
         <label>Date:
-            <input type="date" id="dateFilter">
+            <input type="date" id="filterDate">
         </label>
         <label>Amount:
-            <input type="number" id="amountFilter" placeholder="Min amount">
+            <input type="number" id="filterAmount" placeholder="Min amount">
         </label>
-        <button id="resetFilters">Reset</button>
+        <button id="filterReset">Reset</button>
     </div>
-    <div id="tableTab">
+    <div id="table">
         <h2>Transactions</h2>
         <table id="transactionsTable">
             <thead>
@@ -42,10 +42,10 @@
             </thead>
             <tbody></tbody>
         </table>
-        <div id="pagination" class="pagination-controls"></div>
+        <div id="pages" class="pages-control"></div>
     </div>
-    <div id="detailsModal" class="modal">
-        <div class="modal-content">
+    <div id="details" class="model">
+        <div class="models">
             <span class="close">&times;</span>
             <pre id="detailsContent"></pre>
         </div>
