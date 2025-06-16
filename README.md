@@ -3,10 +3,10 @@
 This project transforms a dense XML archive of 1,600 MTN MoMo SMS transactions ranging from airtime purchases and bill payments to money transfers into a full-stack web app that reveals patterns, activity types, and transactional flows across Rwanda’s mobile money ecosystem. Exercising full-stack proficiency; backend workflows, structured data storage, and user interface design.
 
 ## Objectives aimed at when creating the project
-Parse and clean raw SMS data from XML files.
-Categorize transactions into meaningful types.
-Store structured data in a relational database.
-Build a user-friendly web dashboard to visualize transaction insights.
+- Parse and clean raw SMS data from XML files.
+- Categorize transactions into the given types.
+- Store structured data in a relational database.
+- Build a user-friendly dashboard website that help to visualize the transactions in different formats.
 
 ## Functions and attributes of the project
 **Backend Data Processing**:
