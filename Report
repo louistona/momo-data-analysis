@@ -17,21 +17,20 @@ Ange Umutoni: Documentarian of the project.
 Tools and Technologies: 
 Visual Studio Code for the front end and back end development.
 Github for repository creation.
-Postman to test API endpoints.
+Swagger API to test API endpoints.
 PgAdmin to view, query and manage the database.
 Supabase to store the transactions in a managed cloud database
-Render to host the backend API.
 
 
 3. Design Choices
-User Experience (UX) Design: We went with a simplistic corporate style in order to not overwhelm the user with too many colors to confuse or distract them, hence why our main color and graphics are mostly white.
+User Experience (UX) Design: We went with a simplistic corporate style that looks the most like an classic MTN color design so that the users immediately know which company is related to the interface.
  
-User Interface (UI) Design: Same for this part, the design for the dashboard was also made to be simple in order to not overwhelm the user and we made sure to label every button and function short and precise, so that the end user knows what to do with the application. 
+User Interface (UI) Design: For this part, the design for the dashboard was also made to be look as much as possible as an MTN dashboard from its classic era where the colourways were always dark blue and amber yellow. 
 
 
 4. Functionality Overview
 Core Features: 
-The system extracts transaction details from XML-based SMS messages, categorizes them into various transaction types (e.g., Payments, Withdrawals, Bank Transfers), and stores them in a PostgreSQL database.
+The system extracts transaction details from XML-based SMS messages, categorizes them into various transaction types (e.g., Payments, Withdrawals, Bank Transfers), and stores them in a database.
 
 The frontend provides an interactive dashboard where users can:
 	•	Search and filter transactions by type, date, or amount.
@@ -58,21 +57,13 @@ Making the table responsive was an exhaustive task.
 
 6. Lessons Learned
 What Worked Well: 
-Hosting the server on Render was very straightforward.
-There was little to almost no error when coding the HTML and CSS front end part.
+Hosting the server on swagger API was very straightforward.
 The API integration was very smooth.
 
 
 What Could Be Improved:
-The User Interface needs a bit more work in order for it to be engaging.
-The design is a bit too simplistic which would not catch the eye immediately and encourage interactivity.
+The User Interface needs a bit more work in order for it to be as interactive as possible as some of the buttons still face some errors.
+The design is a bit too colourful which quite does not match well with the current day trends of simplistic white backgrounds web platforms
 
 7. Conclusion
-So in summary again, This project showcases end-to-end development skills, including backend API creation (Node.js, Express, Sequelize, PostgreSQL), frontend visualization (HTML, CSS, JavaScript, Chart.js), and real-time search filtering.
-
-
-
-
-8. Instructions on how to run your application:
-
-
+So in summary again, This project showcases end-to-end development skills, including backend API creation, interactive frontend dashboard design and integration of databases and APIs in our web platform.
