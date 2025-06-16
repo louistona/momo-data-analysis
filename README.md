@@ -54,19 +54,19 @@ This project transforms a dense XML archive of 1,600 MTN MoMo SMS transactions r
    ```bash
    git clone https://github.com/louistona/momo-data-analysis.git
    ```
-   
+
 2. Open the directory
    ```bash
    cd momo-data-analysis
    ```
-   
+
 3. Run your terminal
 
 4. Activate the Scripts
    ```bash
    .\venv\Scripts\activate
    ```
-   
+
 5. Install dependencies
    ```bash
    pip install -r backend/requirements.txt
@@ -78,17 +78,17 @@ This project transforms a dense XML archive of 1,600 MTN MoMo SMS transactions r
    ```bash
    python backend/db_setup.py
    ```
-   
+
 7. Parse and load the data into the database
    ```bash
    python backend/load_data.py
    ```
-   
+
 8. Launch the browser application
    ```bash
    python backend/app.py
    ```
-   
+
 9. You can open the index.html in a web browser in order to be able to see the database changes on the main dashboard.
 
 ## Collaborators of the Project

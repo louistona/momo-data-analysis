@@ -14,7 +14,7 @@ Louis-Marie Tona: Joint Front end developer of the project.
 Olivier Itangishaka: Joint Front end developer of the project.
 Ange Umutoni: Documentarian of the project.
 
-Tools and Technologies: 
+Tools and Technologies:
 Visual Studio Code for the front end and back end development.
 Github for repository creation.
 Swagger API to test API endpoints.
@@ -24,12 +24,12 @@ Supabase to store the transactions in a managed cloud database
 
 3. Design Choices
 User Experience (UX) Design: We went with a simplistic corporate style that looks the most like an classic MTN color design so that the users immediately know which company is related to the interface.
- 
+
 User Interface (UI) Design: For this part, the design for the dashboard was also made to be look as much as possible as an MTN dashboard from its classic era where the colourways were always dark blue and amber yellow. 
 
 
 4. Functionality Overview
-Core Features: 
+Core Features:
 The system extracts transaction details from XML-based SMS messages, categorizes them into various transaction types (e.g., Payments, Withdrawals, Bank Transfers), and stores them in a database.
 
 The frontend provides an interactive dashboard where users can:
@@ -39,7 +39,7 @@ The frontend provides an interactive dashboard where users can:
 	•	Click on transactions to view additional details.
 
 
-User Flow: 
+User Flow:
 This project showcases end-to-end development skills, including backend API creation (Node.js, Express, Sequelize, PostgreSQL), frontend visualization (HTML, CSS, JavaScript, Chart.js), and real-time search filtering.
 
 
@@ -56,7 +56,7 @@ Finding color variations that match in the charts or graphs.
 Making the table responsive was an exhaustive task.
 
 6. Lessons Learned
-What Worked Well: 
+What Worked Well:
 Hosting the server on swagger API was very straightforward.
 The API integration was very smooth.
 
