@@ -8,88 +8,117 @@ This project transforms a dense XML archive of 1,600 MTN MoMo SMS transactions r
 - Store structured data in a relational database.
 - Build a user-friendly dashboard website that help to visualize the transactions in different formats.
 
-## Functions and attributes of the project
-**Backend Data Processing**:
+## Features
+- **Backend**:
+  - Parses and cleans MoMo SMS XML data.
+  - Stores processed data into a MySQL database.
+  - Provides APIs to retrieve data using FastAPI.
 
-- XML parsing and data extraction
-- Data cleaning and normalization (amounts, dates, text)
-- Categorization into transaction types (e.g., withdrawals, transfers, payments)
-- Database Integration
+- **Frontend**:
+  - Dynamically displays data using JavaScript.
+  - Allows filtering of transactional data based on user preferences.
+  - Generates interactive charts for data visualization.
 
-**Frontend Interactive Dashboard**:
+## Technologies Used
 
-- Search and filter transactions by type, date, or amount.
-- Examine detailed transaction records in a structured table.
+### Backend:
+- **Python** (with FastAPI for API development)
+- **MySQL** (for data storage)
+- **XML Parsing Libraries** (for handling SMS data)
 
-## Tech used to create the project
-- **Frontend**: HTML, CSS, JS
-- **Backend**: Python (flask)
-- **Database**: Supabase
-- **API tester**: Swagger API
+### Frontend:
+- **HTML**
+- **CSS**
+- **JavaScript**
+
+### Charts:
+- Charting library used to display interactive visualizations (e.g., Chart.js or D3.js, if applicable)
 
 ## Folder and File Structure
 ```bash
 ├──Image
     ├── logo.png
 ├── backend
-    ├── app.py
-    ├── config.py
-    ├── data_cleaning.py
-    ├── db_setup.py
-    ├── load_data.py
-    ├── models.py
+    ├── _init_.py
+    ├── Makefile
+    ├── main.py
+    ├── pyproject.toml
+    ├── momo_dashboard.db
+    ├── poetry.lock
     ├── modified_sms_v2.xml
-    ├── parse_xml.py
+    ├── sms_processing.py
     ├── requirements.txt
-    ├── schema.sql
-    ├── utils.py
+    ├── unprocessed_sms.log
 ├── frontend
     ├── index.html
-    ├── main.js
-    ├── style.css
+    ├── index.js
+    ├── index.css
 ```
 
-## Steps to launching the project
-1. Clone the Repository
+
+## Installation
+
+### Prerequisites:
+- Python 3.12+
+- PostgreSQL
+- MySQL Server
+- FastApi
+
+### Steps:
+1. Clone the repository:
    ```bash
-   git clone https://github.com/louistona/momo-data-analysis.git
+   git clone https://github.com/MoMOO.git
+   cd MoMOO
    ```
+2. Set up the backend:
+   - Create a virtual environment and activate it:
+     ```bash
+     python -m venv venv
+     source venv/bin/activate  # On Windows: venv\Scripts\activate
+     cd pro
+     ```
+   - Install dependencies:
+     ```bash
+     pip install -r requirements.txt
+     ```
+   - Set up your MySQL database and configure the connection in the backend settings.
+   - Start the FastAPI server:
+     ```bash
+     uvicorn main:app --reload
+     ```
 
-2. Open the directory
-   ```bash
-   cd momo-data-analysis
-   ```
+3. Set up the frontend:
+   - Open the `index.html` file in your preferred browser.
+   - Ensure the frontend is properly connected to the backend APIs.
 
-3. Run your terminal
+## Usage
+1. Upload your XML data to the backend via the provided endpoint or interface.
+2. The backend will parse, clean, and store the data in the MySQL database.
+3. Use the frontend interface to:
+   - View transactional data.
+   - Apply filters to retrieve specific data.
+   - Visualize data using charts.
 
-4. Activate the Scripts
-   ```bash
-   .\venv\Scripts\activate
-   ```
+## API Endpoints
+| Method | Endpoint            | Description               |
+|--------|-------------------  |---------------------------|
+| `GET`  | `/sms?search=`      | search any word           |
+| `GET`  | `/sms?type=`        | Retrieve filtered data    |
+| `GET`  | `/sms?date=`        | Retrieve filtered data    |
+| `GET`  | `/sms?amount=`      | Retrieve filtered data    |
 
-5. Install dependencies
-   ```bash
-   pip install -r backend/requirements.txt
-   ```
-⚠️ To avoid errors, it is advised to delete the 'transactions.db' file already in the database before proceeding with the instructions.
+## Filtering
+The frontend allows users to filter data by various criteria such as:
+- Date Range
+- Filter by any word
+- Transaction Type
+- Amount
 
-
-6. Create your database structure
-   ```bash
-   python backend/db_setup.py
-   ```
-
-7. Parse and load the data into the database
-   ```bash
-   python backend/load_data.py
-   ```
-
-8. Launch the browser application
-   ```bash
-   python backend/app.py
-   ```
-
-9. You can open the index.html in a web browser in order to be able to see the database changes on the main dashboard.
+## Charts
+Interactive charts provide insights into:
+- Total transactions over time.
+- Distribution of transaction types.
+- Monthly transaction summaries.
 
 ## Collaborators of the Project
 Amanda Leslie INEMA
