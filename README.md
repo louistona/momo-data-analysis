@@ -67,8 +67,8 @@ This project transforms a dense XML archive of 1,600 MTN MoMo SMS transactions r
 ### Steps:
 1. Clone the repository:
    ```bash
-   git clone https://github.com/MoMOO.git
-   cd MoMOO
+   git clone https://github.com/louistona/momo-data-analysis.git
+   cd momo-data-analysis
    ```
 2. Set up the backend:
    - Create a virtual environment and activate it:
