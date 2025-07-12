@@ -39,20 +39,24 @@ This project transforms a dense XML archive of 1,600 MTN MoMo SMS transactions r
 ├──Image
     ├── logo.png
 ├── backend
-    ├── _init_.py
-    ├── Makefile
-    ├── main.py
-    ├── pyproject.toml
-    ├── momo_dashboard.db
-    ├── poetry.lock
+    ├── app.py
+    ├── config.py
+    ├── data_cleaning.py
+    ├── db_setup.py
+    ├── load_data.py
+    ├── models.py
     ├── modified_sms_v2.xml
-    ├── sms_processing.py
+    ├── parse_xml.py
+    ├── schema.sql
+    ├── utils.py
+    ├── main.py
+    ├── momo_dashboard.db
     ├── requirements.txt
     ├── unprocessed_sms.log
 ├── frontend
     ├── index.html
-    ├── index.js
-    ├── index.css
+    ├── main.js
+    ├── styles.css
 ```
 
 
@@ -65,32 +69,47 @@ This project transforms a dense XML archive of 1,600 MTN MoMo SMS transactions r
 - FastApi
 - Flask
 
-### Steps:
-1. Clone the repository:
+### Steps to launching the project:
+1. Clone the Repository
    ```bash
    git clone https://github.com/louistona/momo-data-analysis.git
+   ```
+
+2. Open the directory
+   ```bash
    cd momo-data-analysis
    ```
-2. Set up the backend:
-   - Create a virtual environment and activate it:
-     ```bash
-     python -m venv venv
-     source venv/bin/activate  # On Windows: venv\Scripts\activate
-     cd pro
-     ```
-   - Install dependencies:
-     ```bash
-     pip install -r requirements.txt
-     ```
-   - Set up your MySQL database and configure the connection in the backend settings.
-   - Start the FastAPI server:
-     ```bash
-     uvicorn main:app --reload
-     ```
 
-3. Set up the frontend:
-   - Open the `index.html` file in your preferred browser.
-   - Ensure the frontend is properly connected to the backend APIs.
+3. Run your terminal
+
+4. Activate the Scripts
+   ```bash
+   .\venv\Scripts\activate
+   ```
+
+5. Install dependencies
+   ```bash
+   pip install -r backend/requirements.txt
+   ```
+⚠️ To avoid errors, it is advised to delete the 'transactions.db' file already in the database before proceeding with the instructions.
+
+
+6. Create your database structure
+   ```bash
+   python backend/db_setup.py
+   ```
+
+7. Parse and load the data into the database
+   ```bash
+   python backend/load_data.py
+   ```
+
+8. Launch the browser application
+   ```bash
+   python backend/app.py
+   ```
+
+9. You can open the index.html in a web browser in order to be able to see the database changes on the main dashboard.
 
 ## Usage
 1. Upload your XML data to the backend via the provided endpoint or interface.
