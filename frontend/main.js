@@ -8,11 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let transactions = [];
 
+  fetch('http://localhost:5000/apidocs/#/Transactions');
+
   async function fetchTransactions() {
     try {
-      const response = await fetch(
-        'https://momo-analysis-bn.onrender.com/api/transactions',
-      );
+      const response = await fetch('http://localhost:5000/apidocs/#/Transactions/get_filter');
       const fetchdata = await response.json();
       transactions = fetchdata.data.map((transaction) => ({
         ...transaction,
