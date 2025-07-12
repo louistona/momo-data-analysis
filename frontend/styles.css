@@ -1,0 +1,130 @@
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2px;
+  color: #f5bb00;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: #013c6c;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.logo {
+  height: 75px;
+  width: auto;
+  margin-top: 10px;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5bb00;
+}
+
+header {
+  padding: 1rem;
+  text-align: center;
+  background-image: #f5bb00;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-radius: 20px;
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f5bb00;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+.filters input{
+  color: black;
+  background-color: white;
+}
+
+.filters select {
+  color: #f5bb00;
+  background-color: #013c6c;
+}
+
+.filters button {
+  background-color: #013c6c;
+  color: #f5bb00;
+  border: none;
+  cursor: pointer;
+}
+
+.filters input,
+.filters select,
+.filters button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.visualizations {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.chart-container {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.details {
+  padding: 1rem;
+  background-color: #f5bb00;
+  margin-top: 1rem;
+  color: #013c6c;
+  text-align: center;
+}
+
+#transaction-details {
+  padding: 1rem;
+  border: 2px solid #013c6c;
+  border-radius: 8px;
+}
+
+.transactions-section {
+  padding: 1rem;
+  background-color: #f5bb00;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: #013c6c;
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th,
+td {
+  border: 2px solid #013c6c;
+  padding: 8px;
+  text-align: left;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
