@@ -1,3 +1,10 @@
+// Replace with your actual Supabase project URL and public anon key
+const SUPABASE_URL = 'https://uhmcqwhcirkvnykypqhs.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVobWNxd2hjaXJrdm55a3lwcWhzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAwNjAyMjksImV4cCI6MjA2NTYzNjIyOX0.KfBtYkgcTJzD7mYCl8q_KyXAWxNHlPMI30j8-7BdScA';
+
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById('search');
   const filterType = document.getElementById('filter-type');
@@ -8,22 +15,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let transactions = [];
 
-  fetch('http://localhost:5000/apidocs/#/Transactions');
-
   async function fetchTransactions() {
-    try {
-      const response = await fetch('http://localhost:5000/apidocs/#/Transactions/get_filter');
-      const fetchdata = await response.json();
-      transactions = fetchdata.data.map((transaction) => ({
-        ...transaction,
-        amount: `${transaction.amount} RWF`,
-      }));
-      renderTransactionsTable(transactions);
-      renderCharts(transactions);
-    } catch (error) {
-      console.error('Error fetching transactions:', error);
-    }
+  try {
+    const { data, error } = await supabase
+      .from('transactions') // ← Your table name
+      .select('*');
+
+    if (error) throw error;
+
+    transactions = data.map((transaction) => ({
+      ...transaction,
+      amount: `${transaction.amount} RWF`,
+    }));
+
+    renderTransactionsTable(transactions);
+    renderCharts(transactions);
+  } catch (error) {
+    console.error('Error fetching transactions:', error.message);
   }
+}
+
 
   function renderCharts(data) {
     const transactionTypes = data.reduce((acc, transaction) => {
